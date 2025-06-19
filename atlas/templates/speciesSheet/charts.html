@@ -1,16 +1,30 @@
 {% block charts %}
     <div class="card mt-4" id="graphBloc">
-        {% if configuration.AFFICHAGE_GRAPH_ALTITUDES %}
-            <h4 class="title-bar title-spaced center strong">{{ _('alt.classes.obs') }}</h4>
-            <div class="chart-container" style="position: relative; height:200px; width:100%">
-                <canvas id="altiChart"></canvas>
-        {% endif %}
+        <h4 class="title-bar title-spaced center strong">{{ _('alt.classes.obs') }}</h4>
+        <div class="chart-container" style="position: relative; height:200px; width:95%; margin:auto">
+            <canvas id="altiChart"></canvas>
         </div>
-        {% if configuration.AFFICHAGE_GRAPH_PHENOLOGIE %}
-            <h4 class="title-bar title-spaced center strong">{{ _('monthly.obs') }}</h4>
-            <div class="chart-container" style="position: relative; height:200px; width:100%">
-                <canvas id="monthChart"></canvas>
-            </div>
-        {% endif %}
+<!--
+        <h4 class="title-bar title-spaced center strong">{{ _('monthly.obs') }}</h4>
+        <div class="chart-container" style="position: relative; height:200px; width:100%">
+            <canvas id="monthChart"></canvas>
+        </div>
+-->
+        <h4 class="title-bar title-spaced center strong">{{ _('decadely.obs') }}</h4>
+        <div class="chart-container" style="position: relative; height:300px; width:95%; margin:auto">
+            <canvas id="decadeChart"></canvas>
+        </div>
+
+        <h4 class="title-bar title-spaced center strong">{{ _('bdefaut.obs') }}</h4>
+        <h5 class="center"> Defaut (2002), Jaulin, Defaut & Puissant (2011) </h5>
+        <div class="chart-container" style="position: relative; height:auto; width:95%; margin:auto">
+            <canvas id="bdefautChart"></canvas>
+        </div>
+<!--
+        <script src="/static/calendar-heatmap.js"></script>
+        <script>
+            makeCalHeatmap('#calendar-heatmap',3424 );
+        </script>
+-->
     </div>
 {% endblock %}

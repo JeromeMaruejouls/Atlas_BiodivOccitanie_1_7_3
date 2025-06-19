@@ -41,3 +41,5 @@ GRANT SELECT ON TABLE atlas.t_mailles_territoire_com TO my_reader_user;
 GRANT SELECT ON TABLE atlas.t_mailles_territoire_dep TO my_reader_user;
 GRANT SELECT ON TABLE atlas.t_mailles_territoire_m10 TO my_reader_user;
 GRANT SELECT ON TABLE atlas.vm_cor_taxon_organism TO my_reader_user;
+GRANT SELECT ON TABLE atlas.vm_decades TO my_reader_user;
+GRANT SELECT ON TABLE atlas.vm_bdefaut TO my_reader_user;

@@ -35,14 +35,30 @@
 <script src="{{ url_for('static', filename='node_modules/lightbox2/dist/js/lightbox.min.js') }}"></script>
 
 <script>
-    var dataset = {{ altitudes| tojson}};
+    var dataset = {{ altitudes | tojson}};
     var months_value = {{ months | tojson}};
+    var decades_value = {{ decades | tojson}};
+    var bdefaut_value = {{ bdefaut | tojson}};
+    
     {% if configuration.MULTILINGUAL %}
     var months_name = {{ configuration.AVAILABLE_LANGUAGES[g.lang_code]['months'] | tojson }};
     {% else %}
     var months_name = {{ configuration.AVAILABLE_LANGUAGES[configuration.DEFAULT_LANGUAGE]['months'] | tojson }};
-
     {% endif %}
+
+    {% if configuration.MULTILINGUAL %}
+    console.log(decades_value)
+    var decades_name = {{ configuration.AVAILABLE_LANGUAGES[g.lang_code]['decades'] | tojson }};
+    {% else %}
+    var decades_name = {{ configuration.AVAILABLE_LANGUAGES[configuration.DEFAULT_LANGUAGE]['decades'] | tojson }};
+    {% endif %}
+
+    {% if configuration.MULTILINGUAL %}
+    var bdefaut_name = {{ configuration.AVAILABLE_LANGUAGES[g.lang_code]['bdefaut'] | tojson }};
+    {% else %}
+    var bdefaut_name = {{ configuration.AVAILABLE_LANGUAGES[configuration.DEFAULT_LANGUAGE]['bdefaut'] | tojson }};
+    {% endif %}
+
     var observationsPoint = [];
     var observationsMaille = [];
     var configuration = {{ configuration| tojson}};

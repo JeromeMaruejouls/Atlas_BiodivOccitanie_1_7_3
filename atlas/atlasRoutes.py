@@ -25,6 +25,8 @@ from atlas.modeles.repositories import (
     vmObservationsRepository,
     vmAltitudesRepository,
     vmMoisRepository,
+    vmDecadesRepository,
+    vmBDefautRepository,
     vmTaxrefRepository,
     vmCommunesRepository,
     vmObservationsMaillesRepository,
@@ -195,6 +197,8 @@ def ficheEspece(cd_nom):
     taxon = vmTaxrefRepository.searchEspece(connection, cd_ref)
     altitudes = vmAltitudesRepository.getAltitudesChilds(connection, cd_ref)
     months = vmMoisRepository.getMonthlyObservationsChilds(connection, cd_ref)
+    decades = vmDecadesRepository.getDecadelyObservationsChilds(connection, cd_ref)
+    bdefaut = vmBDefautRepository.getBDefautObservationsChilds(connection, cd_ref)
     synonyme = vmTaxrefRepository.getSynonymy(connection, cd_ref)
     communes = vmCommunesRepository.getCommunesObservationsChilds(connection, cd_ref)
     taxonomyHierarchy = vmTaxrefRepository.getAllTaxonomy(db_session, cd_ref)
@@ -234,6 +238,8 @@ def ficheEspece(cd_nom):
         cd_ref=cd_ref,
         altitudes=altitudes,
         months=months,
+        decades=decades,
+        bdefaut=bdefaut,
         synonyme=synonyme,
         communes=communes,
         taxonomyHierarchy=taxonomyHierarchy,
