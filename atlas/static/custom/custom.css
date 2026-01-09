@@ -1,0 +1,142 @@
+/* Insert your custom override CSS in this file */
+/* main : boutons interface*/
+/* second : polygone commune */
+:root {
+    --main-color: #5fb80c;
+    --second-color: #EABD43;
+    --map-maille-border-color: #800026;
+}
+
+
+/***********************/
+/* Importé de la 142 : */
+/***********************/
+
+/** titre **/
+.titreAppli {
+    font-size: 32px;
+    font-family: 'Oswald', sans-serif;
+    color: #fff !important;
+  }
+  
+  .titreAppli:hover {
+    color: #000;
+  }
+  
+  /** Theme couleur **/
+  
+  body {
+    background-color: #e4e9df  !important;
+  }
+  
+  
+  #sideBar {
+    background-color: #095773;
+  }
+  
+  #sidebar_menu li {
+    border-bottom: 1px solid #fff;
+  }
+  
+  .navbar {
+    background-color: #095773 !important;
+    border-bottom-color: #fff;
+  }
+  
+  .navbar-default .navbar-brand {
+    color: #ffffff;
+  }
+  
+  .navbar-default .navbar-brand {
+    color: #ffffff;
+  }
+  
+  /** centrage vertical des encarts recherche taxon / communes sur navbar **/
+  .navbar-collapse {
+    margin-top: 5px;
+  }
+  
+  /** FIN Theme couleur et reglages page d'accueil **/
+  
+  /** élargissement encart recherche taxon / communes sur navbar **/
+  .navbar-form .form-control {
+    width: 230px;
+  }
+  /** élargissement encart recherche taxon / communes sur page principale **/
+  .stat-object .form-control {
+    width: 230px;
+  }
+  /** FIN **/
+  
+  /** bouton saisir observations  sur navbar **/
+  .btn-success {
+    color: #fff;
+    background-color: #063242;
+    border-color: #bed6df;
+  }
+  
+  .btn-success:hover {
+    background-color: #79909d;
+    border-color: #fff;
+  }
+  
+  /** FIN **/
+  
+  /** icone tooltips blanche navbar **/
+  .glyphicon.white {
+    color: #fff;
+  }
+  
+  /** Bandeau en construction **/
+  .corner-ribbon.red {
+    background: #e43;
+  }
+  .corner-ribbon.top-right {
+    top: 40px;
+    right: -65px;
+    left: auto;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  .corner-ribbon.shadow {
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+  }
+  .corner-ribbon.sticky {
+    position: fixed;
+  }
+  .corner-ribbon {
+    width: 300px;
+    background: #e43;
+    position: absolute;
+    top: 25px;
+    left: -50px;
+    text-align: center;
+    line-height: 50px;
+    padding-left:15px;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    z-index: 9999;
+  }
+
+/** Badges **/
+  .caractEspece {
+    width: auto;
+    height: 30px;
+    border: thick double #32a1ce;
+}
+
+/** Fenetre modale taxons inférieurs **/
+  .modal-dialog {
+    max-width: 1200px;
+  }
+
+  .modal-header {
+    display: block;
+  }
+
+/* SlideShow des logos des organismes */
+  .slidepartenaireindex img {
+    max-height: 150px;
+  }

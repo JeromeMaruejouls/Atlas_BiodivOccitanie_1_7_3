@@ -17,7 +17,7 @@ class VmObservations(Base):
     cd_ref = Column("cd_ref", Integer, index=True)
     the_geom_point = Column("the_geom_point", Geometry(geometry_type="POINT", srid=4326))
     geojson_point = Column("geojson_point", Text)
-    diffusion_level = Column("diffusion_level")
+    diffusion_level = Column("diffusion_level", Integer)
 
     def as_dict(self):
         return {
@@ -39,7 +39,14 @@ class VmObservationsMailles(Base):
     __tablename__ = "vm_observations_mailles"
     __table_args__ = {"schema": "atlas"}
     cd_ref = Column("cd_ref", Integer, primary_key=True, index=True)
-    annee = Column("annee", String(1000), primary_key=True, index=True)
-    id_maille = Column("id_maille", Integer, primary_key=True, index=True)
-    nbr = Column("nbr", Integer)
-    id_observations = Column("id_observations", ARRAY(Integer))
+    id_observation = Column("id_observation", ARRAY(Integer))
+    id_maille = Column("id_maille", Integer, index=True)
+    the_geom = Column("the_geom", Geometry(geometry_type="POLYGON", srid=4326))
+    geojson_maille = Column("geojson_maille", Text)
+    annee = Column("annee", String(1000))
+    diffusion_level = Column("diffusion_level", Integer)
+    #nbr = Column("nbr", Integer)
+
+
+        
+

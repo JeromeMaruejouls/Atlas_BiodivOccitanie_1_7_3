@@ -1,0 +1,177 @@
+{% extends "templates/core/layout.html" %}
+
+{% block title %}
+{{ _('atlas.presentation') }}
+{% endblock %}
+
+{% block content %}
+<!-- AJOUTER MON CONTENU HTML ici -->
+<!--<h3> Ma présentation personnalisée</h3>-->
+<div class="container-fluid" id="page">
+      
+    <div class="container presentation">
+        <div class="col-lg-12">
+          
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h1 style="font-family: 'Oswald', sans-serif; text-align: center;">Présentation d'OC'nat et de Biodiv'Occitanie</h1>
+
+                    <div class="col-lg-12">
+                        <img class="img-responsive center-block" src="{{url_for('static', filename='custom/images/ocnat_visuel_cropped.jpg') }}" alt="ocnat-visuel" width="800" style="display:block;margin:auto">
+			</br></br>
+                    </div>
+
+                    <h2 style="font-family: 'Oswald', sans-serif; padding-left: 10px;">Présentation générale</h2>
+                    <h3 style="font-family: 'Oswald', sans-serif; padding-left: 20px;">Objectifs</h3>
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                           	 <p class="text-justify">
+				Fondée en 2017, l’Union des associations naturalistes d’Occitanie est aujourd’hui composée de 19 associations naturalistes. Issue d’une volonté partagée de développer des relations plus étroites, stables et structurées au sein de la grande diversité d’associations naturalistes, OC’nat a comme ambition de développer une collaboration structurée entre les associations naturalistes occitanes, au sein de laquelle le partage des compétences et des savoir-faire permette d’enrichir la qualité de projets portés en commun. Les objectifs de l’Union des associations naturalistes d’Occitanie sont les suivants : 
+				</p>
+				<ul>
+					<li> Établir un lien étroit entre les associations adhérentes afin de permettre une collaboration et une concertation permanente, en particulier dans le cadre de leurs champs d’actions communs ; </li>
+					<li> Promouvoir de manière concertée les buts et les réalisations des associations adhérentes ; </li>
+					<li> Assurer une meilleure articulation des travaux entre les échelons départemental et régional ; </li>
+					<li> Aider à la mise en commun de moyens et de compétences ; </li>
+					<li> Porter des projets à dimension régionale et nationale, voire internationale avec les pays limitrophes ; </li>
+					<li> Développer la concertation avec les pouvoirs publics et les organismes privés ; </li>
+					<li> Coordonner les relations avec les autres structures ayant des objectifs similaires. </li>
+				</ul>
+
+	                        <p>
+                                    <a href="https://ocnat.fr/" target="_bank">En savoir plus sur OC'nat</a>
+                            	</p>
+                        </div>
+                    </div>
+            
+                    <h3 style="font-family: 'Oswald', sans-serif; padding-left: 20px;">OC'nat - Union des associations naturalistes d’Occitanie</h3>
+            
+                <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-justify">
+                    OC'nat est une association loi 1901 ayant pour objectif de rassembler les associations naturalistes de la région Occitanie.
+                    Elle a été crée en 2017, suite à la fusion des régions Midi-Pyrénées et Languedoc-Roussillon. 
+                    Les associations qui se sont lancées dans l'aventure sont 
+                    </p>
+                    <ul>
+                        <!--<li><a href="{{url_for('main.get_staticpages', page='partenaires') }}" target="_bank">ADENA</a></li>-->
+                        <li><a href="https://www.adena-bagnas.fr/" target="_bank">ADENA</a></li>
+                        <li><a href="https://www.alepe48.fr/ " target="_bank">ALEPE</a></li>
+                        <li><a href="{{url_for('main.get_staticpages', page='organism/4') }}" target="_bank">ANA-CEN Ariège</a></li>
+                        <li><a href="{{url_for('main.get_staticpages', page='organism/10') }}" target="_bank">Association LUS</a></li>
+                        <li><a href="{{url_for('main.get_staticpages', page='organism/11') }}" target="_bank">Aude Nature</a></li>
+                        <li><a href="https://cogard.org/" target="_bank">COGard - Centre Ornithologique du Gard</a></li>
+                        <li><a href="https://www.cen-occitanie.org/" target="_bank">Conservatoire d'espaces naturels d'Occitanie'</a></li>
+                        <li><a href="https://www.audeclaire.org/" target="_bank">Fédération Aude Claire</a></li>
+                        <li><a href="https://www.gnaum.fr/" target="_bank">GNAUM - Groupe Naturaliste de l'Université de Montpellier</a></li>
+                        <li><a href="https://asso-gclr.fr/" target="_bank">Groupe Chiroptères Languedoc-Roussillon</a></li>
+                        <li><a href="https://www.gor66.fr/" target="_bank">Groupe Ornithologique du Roussillon - GOR</a></li>
+                        <li>Hérault Nature</li>
+                        <li><a href="{{url_for('main.get_staticpages', page='organism/31') }}" target="_bank">Les Écologistes de l'Euzière</a></li>
+                        <li><a href="https://occitanie.lpo.fr/" target="_bank">LPO Occitanie</a></li>
+                        <li><a href="{{url_for('main.get_staticpages', page='organism/3') }}" target="_bank">Nature En Occitanie</a></li>
+                        <li><a href="{{url_for('main.get_staticpages', page='organism/6') }}" target="_bank">Office pour les insectes et leur environnement (Opie)</a></li>
+                        <li><a href="https://www.opie-mp.fr/" target="_bank">Opie Midi-Pyrénées</a></li>
+                        <li><a href="http://orchidees-du-languedoc.fr/SFOLanguedoc/index.php" target="_bank">SFO-L - Société Française des Orchidées du Languedoc</a></li>
+                        <li><a href="https://s2hnh.org/" target="_bank">SHHNH - Société d'Horticulture et d'Histoire Naturelle de l'Hérault</a></li>
+                        <li><a href="https://www.ssntg82.com/" target="_bank">SSNTG - Société de Sciences Naturelles de Tarn et Garonne</a></li>
+                        <li><a href="https://www.tela-botanica.org/" target="_bank">Tela Botanica</a></li>
+                    </ul>
+                    </div>  
+                </div>
+
+                <h3 style="font-family: 'Oswald', sans-serif; padding-left: 20px;">Membres fondateurs d'OC'nat</h3>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="text-justify">
+                            Nature En Occitanie, membre initiateur d'OC'nat, œuvre au quotidien pour la protection et la valorisation de notre patrimoine naturel.
+                            Sensibiliser tous les publics, connaître les espèces et leurs milieux pour mieux les protéger, gérer les espaces naturels et accompagner tous ceux qui souhaitent agir, alerter les pouvoirs publics... Voilà les grands axes autour desquels Nature En Occitanie agit. En place depuis que l'Homme a marché sur la lune (ça remonte hein !), l'association, forte de plus de 700 adhérents et d'une équipe d'une quarantaine de salariés, rassemble les novices curieux comme les connaisseurs passionnés autour d'animations, d'ateliers, de conférences, de sorties nature ou encore de prospections et suivis naturalistes. Bref, leur slogan parle de lui même : Agir ensemble pour la nature ! 
+                            https://www.youtube.com/watch?v=5vQwXveBESc&t=22s
+                            Pour en savoir davantage : http://www.natureo.org/ !
+                        </p>
+                        <p class="text-justify">
+                            Place aujourd'hui au deuxième des cinq membres initiateurs d’OC’nat : Les Écologistes de l'Euzière
+                            !
+                            Nés la même année que Leonardo DiCaprio, les Écologistes de l'Euzière œuvrent comme lui, bien qu’à une échelle plus locale, en faveur de l’environnement. Fondée par des botanistes de l’Université de Montpellier souhaitant transmettre leurs connaissances, l’association poursuit cet objectif au travers d’actions de sensibilisation à la gestion durable des paysages méditerranéens pour tous publics, ainsi qu’en éditant des ouvrages pédagogiques et richement illustrés. Elle développe par ailleurs une activité de conseil et d’étude, mettant son expertise au service des acteurs du territoire.
+                            Chez les Écolos, on vous parle beaucoup de salades mais on ne vous en raconte pas, et on vous invite à apprendre “sur le terrain plutôt que dans les livres”, lors des “Samedis Buissonniers”, des sorties des “Brins de botanistes” ou du groupe faune. Des conférences très variées sont également organisées, ainsi que des stages de formation en écologie et en animation.
+                            Rendez-vous sur leur site internet pour découvrir l’ensemble de leurs animations :
+                            http://www.euziere.org/wakka.php?wiki=LesActivites !
+                        </p>
+                        <p class="text-justify">
+                            A l'honneur ce soir : le COGard - Centre Ornithologique du Gard !
+                            Le Centre Ornithologique du Gard, ou COGard pour les intimes, fait lui aussi partie des cinq membres initiateurs d’OC'nat. Né la même année que la célèbre Kim Kardashian, il n’est pas aussi actif sur twitter, instagram et snapchat, mais travaille dur sur le terrain ! Créé par quelques passionnés d’oiseaux, le COGard, avec ses 200 adhérents et 4 salariés permanents, a pour but l’étude et la protection de la faune et la flore du département qui lui donne son nom. Ses activités concernent principalement les oiseaux et il coordonne notamment, à l’échelle du Gard, le Réseau Circaète et les Plans Nationaux d’Actions de l’Aigle de Bonelli et de l’Outarde canepetière. Depuis une dizaine d’années, l’association a en outre progressivement étendu son champ d’action en participant par exemple à la réalisation d’atlas sur les amphibiens, reptiles, papillons et libellules, et a également développé un volet sensibilisation à l’environnement. Sorties et conférences naturalistes sont ainsi l’occasion de découvrir les richesses naturelles du Gard et la beauté des oiseaux...
+                            Retrouvez leurs activités sur leur site internet : http://cogard.org/ !
+                        </p>
+                        <p class="text-justify">
+                            On continue le tour de table avec le quatrième des cinq membres initiateurs d'OC'nat ! :
+                            Fondée alors que naissait Martin Fourcade, sportif français le plus titré aux Jeux-Olympiques, l'Association des Naturalistes de l'Ariège
+                            est presque aussi exceptionnelle, puisque c’est la seule structure française à œuvrer dans le cadre de trois réseaux majeurs : celui des Conservatoires d’Espaces Naturels, des Centres Permanents d’Initiatives pour l’Environnement, et Éducation Pyrénées Vivantes. Elle agit ainsi sur tous les plans : expertise écologique, gestion des espaces naturels, accompagnement des collectivités, et sensibilisation et éducation à l’environnement. Chaque année, l’ANA-CEN Ariège propose également un calendrier des sorties : “Les 4 saisons de l’Ana’ture”, qui vous propose de rejoindre les 500 adhérents et la vingtaine de salariés de l’association lors de nombreuses sorties nature à la découverte des trésors naturels ariégeois, mais aussi lors de soirées-diaporamas ou contes et de chantiers nature.
+                            Retrouvez leur calendrier 2018 sur leur site : https://ariegenature.fr/le-calendrier-de-lanature-2018.../ !
+                        </p>
+                        <p class="text-justify">
+                            Nous vous faisons aujourd'hui découvrir le dernier des cinq membres initiateurs d'OC'nat !
+                            L’Association Lozérienne pour l’Étude et la Protection de l’Environnement (nom de code : ALEPE
+                            ), fondée alors que sortait sur borne d’arcade le monument du jeu vidéo Space Invaders, n’a pas comme ces aliens l’objectif d’envahir notre monde, mais plutôt de l’étudier, le protéger, et sensibiliser à sa biodiversité. C’est ainsi qu’elle participe sur le territoire lozérien à de nombreux inventaires, études et comptages, d’envergure départementale à internationale (Suivi Temporel des Oiseaux Communs, Plans Nationaux d’Action, comptage Wetlands International…). Appuyée de trois salariés, l’association siège dans les commissions locales où elle défend la préservation des espaces naturels, et a par ailleurs édité un atlas sur la faune sauvage de Lozère, ainsi qu’un guide des itinéraires naturalistes du département. Conscients de l’importance de sensibiliser tous les publics à la richesse du patrimoine naturel, bénévoles et salariés de l’ALEPE organisent des animations auprès des scolaires, des professionnels et du grand public !
+                            Retrouvez leurs actions sur leur site : https://www.alepe48.fr/
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3 style="font-family: 'Oswald', sans-serif; padding-left: 20px;">Partenaires</h3>
+                        <p class="text-justify">
+                            Biodiv'Occitanie est ouvert aux structures naturalistes qui souhaitent valoriser leurs connaissances. D'autres structures sont partenaires de cet atlas :
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="{{url_for('main.get_staticpages', page='partenaires') }}" target="_bank">Malpolon</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3 style="font-family: 'Oswald', sans-serif; padding-left: 20px;">GeoNature</h3>
+                        <p class="text-justify">
+                            Biodiv'Occitanie est basé sur l'application web GeoNature-atlas développé par le Parc national des Écrins et publié sous licence libre. 
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="https://geonature.fr/" target="_bank">Aller sur la page du projet geonature</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3 style="font-family: 'Oswald', sans-serif; padding-left: 20px;">Processus de validation des données</h3>
+                <p>En construction</p>
+
+                <h3 style="font-family: 'Oswald', sans-serif; padding-left: 20px;">Lien avec le SINP</h3>
+                <p>En construction</p>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2  style="font-family: 'Oswald', sans-serif; padding-left: 10px;">Contact</h2>
+                <ul>
+                    <li>Jérôme Maruéjouls, Responsable technique : j.maruejouls@natureo.org </li>
+                    <li>Thibault Rafton, co-président d'OC'nat : ocnat.assos@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- -->
+{% endblock %}
+

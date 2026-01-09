@@ -14,7 +14,7 @@ LIMIT TO (ref_geo.l_areas, ref_geo.li_municipalities, ref_geo.bib_areas_types)
 FROM SERVER geonaturedbserver INTO ref_geo ;
 
 IMPORT FOREIGN SCHEMA gn_synthese
-LIMIT TO (gn_synthese.synthese, gn_synthese.cor_area_synthese)
+LIMIT TO (gn_synthese.synthese, gn_synthese.cor_area_synthese, gn_synthese.jdd_hors_biodiv)
 FROM SERVER geonaturedbserver INTO synthese;
 
 -- Schéma utilisateurs necessaire pour ajouter la dimension organisme à l'atlas

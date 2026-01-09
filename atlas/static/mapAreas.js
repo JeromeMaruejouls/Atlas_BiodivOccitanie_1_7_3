@@ -17,7 +17,7 @@ var areaLayer = L.geoJson(areaInfos.areaGeoJson, {
             weight: 2,
             color: areaBorderColor,
             // dashArray: "3",
-            fillOpacity: 0.3
+            fillOpacity: 0.05
         };
     }
 }).addTo(map);
@@ -43,7 +43,7 @@ else {
 
 htmlLegendMaille =
     "<i style='border: solid 1px var(--map-maille-lastobs-border-color);'> &nbsp; &nbsp; &nbsp;</i> Maille comportant au moins une observation <br> <br>" +
-    "<i style='border: dashed 2px var(--map-area-border-color); background-color:var(--map-area-border-color); opacity:0.3'> &nbsp; &nbsp; &nbsp;</i> Limite de la zone <br> <br>" +
+    "<i style='border: dashed 2px var(--map-area-border-color); background-color:var(--map-area-border-color); opacity:1'> &nbsp; &nbsp; &nbsp;</i> Limite de la zone <br> <br>" +
     "<i style='border: solid var(--map-area-border-width) var(--map-territory-border-color);'> &nbsp; &nbsp; &nbsp;</i> Limite du " +
     configuration.STRUCTURE;
 

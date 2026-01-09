@@ -20,18 +20,19 @@ def getObservationsMaillesChilds(session, cd_ref, year_min=None, year_max=None):
     query = (
         session.query(
             VmObservationsMailles.id_maille,
-            TMaillesTerritoire.geojson_maille,
-            func.max(VmObservationsMailles.annee).label("last_obs_year"),
-            func.sum(VmObservationsMailles.nbr).label("obs_nbr"),
+            VmObservationsMailles.geojson_maille,
+            func.max(VmObservationsMailles.annee).label("last_observation"),
+            func.count(VmObservationsMailles.id_observation).label("nb_obs"),
+            func.max(VmObservationsMailles.diffusion_level).label("diffusion_level"),   # MODIF JEROME
         )
-        .join(
-            TMaillesTerritoire,
-            TMaillesTerritoire.id_maille == VmObservationsMailles.id_maille,
-        )
+#        .join(
+#            TMaillesTerritoire,
+#            TMaillesTerritoire.id_maille == VmObservationsMailles.id_maille,
+#        )
         .filter(VmObservationsMailles.cd_ref == any_(taxons_ids))
         .group_by(
             VmObservationsMailles.id_maille,
-            TMaillesTerritoire.geojson_maille,
+            VmObservationsMailles.geojson_maille,
         )
     )
     if year_min and year_max:
@@ -44,8 +45,9 @@ def getObservationsMaillesChilds(session, cd_ref, year_min=None, year_max=None):
                 geometry=json.loads(o.geojson_maille),
                 properties={
                     "id_maille": o.id_maille,
-                    "nb_observations": int(o.obs_nbr),
-                    "last_observation": o.last_obs_year,
+                    "nb_observations": int(o.nb_obs),
+                    "last_observation": o.last_observation,
+                    "diffusion_level": int(o.diffusion_level)       # MODIF JEROME
                 },
             )
             for o in query.all()

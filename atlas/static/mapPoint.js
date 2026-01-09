@@ -36,8 +36,9 @@ $.ajax({
 
     // mailleBoolean: dipslay maille mode because a lot of obs
     var mailleBoolean = false;
-    if (observations.point.features.length > 500) {
-        displayMailleLayerFicheEspece(observations.maille);
+    //if (observations.point.features.length > 500) {
+    if (observations.point.features.length > 0) {
+            displayMailleLayerFicheEspece(observations.maille);
         mailleBoolean = true;
     } else {
         // affichage des points sans filtrer par annes pour gagner en perf
