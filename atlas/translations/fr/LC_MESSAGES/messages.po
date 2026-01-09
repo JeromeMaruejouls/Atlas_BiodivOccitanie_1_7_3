@@ -1,18 +1,14 @@
 # French translations for PROJECT.
-# Copyright (C) 2021 ORGANIZATION
+# Copyright (C) 2026 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2024-11-27 10:38+0100\n"
-=======
-"POT-Creation-Date: 2025-06-19 09:40+0000\n"
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2026-01-09 15:55+0000\n"
+"PO-Revision-Date: 2026-01-09 15:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -22,10 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-<<<<<<< HEAD
 #: static/custom/templates/bandeaulogoshome.html:6
-=======
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 #: static/custom/templates/bandeaulogoshome.html.sample:6
 msgid "home.partners"
 msgstr "Partenaires"
@@ -35,71 +28,81 @@ msgstr "Partenaires"
 msgid "home"
 msgstr "Accueil"
 
-#: static/custom/templates/footer.html:5 static/custom/templates/footer.html:29
+#: static/custom/templates/footer.html:5 static/custom/templates/footer.html:24
 #: static/custom/templates/footer.html.sample:5
-#: static/custom/templates/footer.html.sample:29
+#: static/custom/templates/footer.html.sample:32
 msgid "credits"
 msgstr "Conception et crédits"
 
-#: static/custom/templates/footer.html:7 static/custom/templates/footer.html:46
+#: static/custom/templates/footer.html:7 static/custom/templates/footer.html:41
 #: static/custom/templates/footer.html.sample:7
-#: static/custom/templates/footer.html.sample:46
+#: static/custom/templates/footer.html.sample:49
 msgid "legal"
 msgstr "Mentions légales"
 
-#: static/custom/templates/footer.html:11
-#: static/custom/templates/footer.html:64
-#: static/custom/templates/footer.html.sample:11
-#: static/custom/templates/footer.html.sample:64
-msgid "personal_data"
-msgstr "Données personnelles"
-
 #: static/custom/templates/footer.html:12
-msgid "preferences_cookies"
-msgstr "Modifier les préférences de cookies"
-
-#: static/custom/templates/footer.html:18
-#: static/custom/templates/footer.html.sample:17
+#: static/custom/templates/footer.html.sample:18
 msgid "atlas.fauna.flora"
 msgstr "Atlas de la faune et de la flore"
 
-<<<<<<< HEAD
-#: static/custom/templates/footer.html:17
-#: static/custom/templates/footer.html.sample:17
-#: static/custom/templates/introduction.html:7
-=======
-#: static/custom/templates/footer.html.sample:12
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
+#: static/custom/templates/footer.html:12
+#: static/custom/templates/introduction.html:6
 #: static/custom/templates/introduction.html.sample:7
 msgid "from1"
 msgstr "du"
 
-#: static/custom/templates/footer.html:19
-#: static/custom/templates/footer.html.sample:19
+#: static/custom/templates/footer.html:14
+#: static/custom/templates/footer.html.sample:20
 msgid "powered.by"
 msgstr "Réalisé avec"
 
-#: static/custom/templates/footer.html:19
-#: static/custom/templates/footer.html.sample:19
+#: static/custom/templates/footer.html:14
+#: static/custom/templates/footer.html.sample:20
 msgid "developed.by"
 msgstr "développé par le"
 
-#: static/custom/templates/footer.html:20
-#: static/custom/templates/footer.html.sample:20
+#: static/custom/templates/footer.html:15
+#: static/custom/templates/footer.html.sample:22
 msgid "ecrins.national.park"
 msgstr "Parc national des Écrins"
 
+#: static/custom/templates/footer.html.sample:11
+#: static/custom/templates/footer.html.sample:67
+msgid "personal_data"
+msgstr "Données personnelles"
+
+#: static/custom/templates/footer.html.sample:12
+msgid "preferences_cookies"
+msgstr "préférences"
+
+#: static/custom/templates/footer.html.sample:18
+#: static/custom/templates/introduction.html.sample:7
+msgid "from1"
+msgstr "du"
+
+#: static/custom/templates/geonatoccitanie.html:5
+#: static/custom/templates/presentation.html:4
+#: static/custom/templates/presentation.html.sample:4
+#: static/custom/templates/presentation_new.html:4
+msgid "atlas.presentation"
+msgstr "Présentation de l'atlas"
+
+#: static/custom/templates/introduction.html:6
 #: static/custom/templates/introduction.html.sample:6
 msgid "welcome.message"
 msgstr "Bienvenue sur l'atlas de la faune et de la flore"
 
+msgid "from3"
+msgstr "d'"
+
+#: static/custom/templates/introduction.html:9
+#: static/custom/templates/introduction.html.sample:11
+msgid "home.introduction.message"
+msgstr "L'Union des associations naturalistes d’Occitanie (OC'nat) met à disposition les données d'observations naturalistes de ses membres et autres structures naturalistes en Occitanie. Chaque nouvelle observation alimente en temps réel les fiches de chaque espèce que vous consultez, dans une volonté de partage et d'enrichissement des connaissances sur la biodiversité de notre grande région. Cet atlas vous présente les observations réalisées dans le cadre de différents protocoles scientifiques et par les bénévoles. Il ne s'agit pas d'un inventaire exhaustif ni d'une répartition complète des espèces sur le territoire."
+
 #: static/custom/templates/introduction.html.sample:7
 msgid "from2"
 msgstr "de"
-
-#: static/custom/templates/introduction.html.sample:7
-msgid "from3"
-msgstr "d'"
 
 #: static/custom/templates/introduction.html.sample:7
 msgid "from4"
@@ -109,63 +112,29 @@ msgstr "de l'"
 msgid "from5"
 msgstr "de la"
 
-#: static/custom/templates/introduction.html.sample:11
-msgid "home.introduction.message"
-msgstr ""
-"Cet atlas met à votre disposition l'ensemble des espèces sauvages "
-"observées sur le territoire. Chaque nouvelle observation alimente en "
-"temps réel les fiches de chaque espèce que vous consultez, dans une "
-"volonté de partage et d'enrichissement des connaissances sur la "
-"biodiversité.<br/><br/>Cet atlas vous présente des observations réalisées"
-" dans le cadre de différents protocoles scientifiques. Il ne s'agit pas "
-"d'un inventaire exhaustif ni d'une répartition complète des espèces sur "
-"le territoire."
-
-<<<<<<< HEAD
 #: static/custom/templates/navbar.html:34
-=======
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 #: static/custom/templates/navbar.html.sample:34
 #: templates/home/globalStats.html:35 templates/photoGalery/_main.html:77
 msgid "search.species"
 msgstr "Recherche par espèce"
 
-<<<<<<< HEAD
 #: static/custom/templates/navbar.html:47
-=======
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 #: static/custom/templates/navbar.html.sample:47
 #: templates/home/globalStats.html:55
 msgid "search.city"
 msgstr "Recherche par commune"
 
-<<<<<<< HEAD
-#: static/custom/templates/presentation.html:4
-=======
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
-#: static/custom/templates/presentation.html.sample:4
-msgid "atlas.presentation"
-msgstr "Présentation de l'atlas"
-
-#: templates/areaSheet/_main.html:6 templates/areaSheet/_main.html:59
+#: templates/areaSheet/_main.html:6 templates/areaSheet/_main.html:56
 msgid "municipality.of"
 msgstr "Commune de"
 
-#: templates/areaSheet/_main.html:70
+#: templates/areaSheet/_main.html:67
 msgid "last.obs.municipality"
 msgstr "dernières observations dans la commune de"
 
-#: templates/areaSheet/_main.html:73
+#: templates/areaSheet/_main.html:70
 msgid "last.obs.zone"
 msgstr "Dernière observations : "
-
-#: templates/areaSheet/surrounding_areas.html:10
-msgid "associate.zone"
-msgstr "Zones associées"
-
-#: templates/areaSheet/surrounding_areas.html:23
-msgid "check.area.sheet"
-msgstr "Voir la fiche de la zone"
 
 #: templates/core/advanced_search.html:4
 #: templates/core/advanced_search.html:382 templates/core/sideBar.html:30
@@ -183,10 +152,7 @@ msgstr "Fermer"
 
 #: templates/core/advanced_search.html:357
 msgid "asearch.information"
-msgstr ""
-"Cette page vous permet de superposer la répartition de plusieurs espèces "
-"simultanément.<br/><br/>Pour des raisons de visibilité des répartitions "
-"sur carte, le nombre d'espèces total est limité à 3."
+msgstr "Informations avancées"
 
 #: templates/core/advanced_search.html:373
 msgid "page.information"
@@ -209,26 +175,18 @@ msgstr "Commencez à taper le nom d'une espèce"
 msgid "asearch.remove.selection"
 msgstr "Retirer de la sélection"
 
-#: templates/core/advanced_search.html:427 templates/core/listTaxons.html:87
+#: templates/core/advanced_search.html:427 templates/core/listTaxons.html:86
 #: templates/home/lastObs.html:44 templates/home/mostViewNow.html:33
 #: templates/home/newSpecies.html:45 templates/home/taxoRank.html:61
 #: templates/organismSheet/topSpecies.html:67
 msgid "species.sheet"
 msgstr "Fiche espèce"
 
-#: templates/core/advanced_search.html:429 templates/core/listTaxons.html:86
+#: templates/core/advanced_search.html:429 templates/core/listTaxons.html:85
 #: templates/core/tabTaxons.html:87 templates/organismSheet/topSpecies.html:66
-<<<<<<< HEAD
 #: templates/speciesSheet/identityCard.html:180
-=======
-#: templates/speciesSheet/identityCard.html:175
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 msgid "check.species.sheet"
 msgstr "Voir la fiche espèce"
-
-#: templates/core/extended_areas_search.html:13
-msgid "search.other.zones.type"
-msgstr "Recherche par autre type de zones"
 
 #: templates/core/listTaxons.html:14
 msgid "filter.species"
@@ -238,39 +196,31 @@ msgstr "Filtrer les espèces"
 msgid "display.municipality.obs"
 msgstr "Voir les observations sur le territoire"
 
-#: templates/core/listTaxons.html:49 templates/core/tabTaxons.html:62
+#: templates/core/listTaxons.html:48 templates/core/tabTaxons.html:62
 #: templates/organismSheet/topSpecies.html:36
 #: templates/speciesSheet/identityCard.html:64
-<<<<<<< HEAD
 #: templates/speciesSheet/identityCard.html:158
-=======
-#: templates/speciesSheet/identityCard.html:156
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 msgid "this.taxon.has.a.protected.status"
 msgstr "Ce taxon a un statut de protection"
 
-#: templates/core/listTaxons.html:80 templates/core/statHierarchy.html:7
+#: templates/core/listTaxons.html:79 templates/core/statHierarchy.html:7
 #: templates/organismSheet/topSpecies.html:61
 #: templates/speciesSheet/map.html:15
-#: templates/speciesSheet/otherInformations.html:144
+#: templates/speciesSheet/otherInformations.html:143
 msgid "observation"
 msgstr "Observation"
 
-#: templates/core/listTaxons.html:81 templates/core/statHierarchy.html:7
+#: templates/core/listTaxons.html:80 templates/core/statHierarchy.html:7
 #: templates/core/tabTaxons.html:19 templates/home/globalStats.html:16
 #: templates/organismSheet/statsInfos.html:11
 #: templates/organismSheet/topSpecies.html:61
-<<<<<<< HEAD
 #: templates/speciesSheet/identityCard.html:135
-=======
-#: templates/speciesSheet/identityCard.html:133
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 #: templates/speciesSheet/map.html:15
-#: templates/speciesSheet/otherInformations.html:142
+#: templates/speciesSheet/otherInformations.html:141
 msgid "observations"
 msgstr "Observations"
 
-#: templates/core/listTaxons.html:82
+#: templates/core/listTaxons.html:81
 msgid "last.obs.in"
 msgstr "Dernière observation en "
 
@@ -282,11 +232,7 @@ msgstr "Chargement..."
 msgid "back.to.home"
 msgstr "Retour à l'accueil"
 
-<<<<<<< HEAD
 #: templates/core/sideBar.html:35 templates/home/globalStats.html:68
-=======
-#: templates/core/sideBar.html:25 templates/home/globalStats.html:68
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 #: templates/photoGalery/_main.html:5 templates/photoGalery/_main.html:51
 msgid "gallery.title"
 msgstr "Galerie photos"
@@ -310,19 +256,11 @@ msgstr "Observateur"
 msgid "group"
 msgstr "Groupe"
 
-<<<<<<< HEAD
 #: templates/core/tabTaxons.html:8 templates/speciesSheet/identityCard.html:128
 msgid "scientific.name"
 msgstr "Nom binomial"
 
 #: templates/core/tabTaxons.html:9 templates/speciesSheet/identityCard.html:127
-=======
-#: templates/core/tabTaxons.html:8 templates/speciesSheet/identityCard.html:126
-msgid "scientific.name"
-msgstr "Nom binomial"
-
-#: templates/core/tabTaxons.html:9 templates/speciesSheet/identityCard.html:125
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 msgid "common.name"
 msgstr "Nom vernaculaire"
 
@@ -335,11 +273,7 @@ msgid "last.obs"
 msgstr "Dernière observation"
 
 #: templates/core/tabTaxons.html:21
-<<<<<<< HEAD
 #: templates/speciesSheet/identityCard.html:136
-=======
-#: templates/speciesSheet/identityCard.html:134
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 msgid "sheet"
 msgstr "Fiche"
 
@@ -371,8 +305,7 @@ msgstr "A voir en ce moment"
 
 #: templates/home/mostViewNow.html:7
 msgid "species.most.obs.last.15.days"
-msgstr ""
-"Espèces les plus observées dans les 15 jours précédents et suivants "
+msgstr "Espèces les plus observées dans les 15 jours précédents et suivants "
 "aujourd'hui, toutes années confondues"
 
 #: templates/home/newSpecies.html:10
@@ -393,7 +326,7 @@ msgstr "Répartition des observations par groupe"
 
 #: templates/organismSheet/identityCard.html:20
 msgid "Adresse"
-msgstr ""
+msgstr "Adresse"
 
 #: templates/organismSheet/identityCard.html:21
 msgid "Téléphone"
@@ -401,10 +334,9 @@ msgstr "Téléphone"
 
 #: templates/organismSheet/identityCard.html:22
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: templates/organismSheet/identityCard.html:23
-#, fuzzy
 msgid "Site"
 msgstr "Titre"
 
@@ -444,56 +376,31 @@ msgstr "Vidéo(s)"
 msgid "species.infos"
 msgstr "Informations espèce"
 
-#: templates/speciesSheet/blocInfos.html:14
-#: templates/speciesSheet/descriptionMedia.html:16
-#: templates/speciesSheet/otherInformations.html:69
-msgid "description"
-msgstr "Description"
-
-#: templates/speciesSheet/blocInfos.html:17
-msgid "read.more"
-msgstr "En savoir plus"
-
-#: templates/speciesSheet/blocInfos.html:19
-msgid "environment"
-msgstr "Milieu"
-
-#: templates/speciesSheet/blocInfos.html:20
-msgid "repartition"
-msgstr "Répartition"
-
-#: templates/speciesSheet/blocInfos.html:21
+#: templates/speciesSheet/blocInfos.html:27
 msgid "synonyms"
 msgstr "Synonymes"
 
-#: templates/speciesSheet/blocInfos.html:27
 #: templates/speciesSheet/blocInfos.html:39
-#: templates/speciesSheet/blocInfos.html:46
 msgid "not.resigned.for.the.moment"
 msgstr "Non renseigné pour le moment"
 
-#: templates/speciesSheet/blocInfos.html:53
+#: templates/speciesSheet/blocInfos.html:50
 msgid "no.synonym.for.this.taxon"
 msgstr "Pas de synonymes pour ce taxon"
 
-#: templates/speciesSheet/charts.html:4
+#: templates/speciesSheet/charts.html:3
 msgid "alt.classes.obs"
 msgstr "Observations par classes d'altitudes"
 
-<<<<<<< HEAD
-#: templates/speciesSheet/charts.html:10
-=======
 #: templates/speciesSheet/charts.html:8
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 msgid "monthly.obs"
-msgstr "Observations mensuelles"
+msgstr "Observations par mois"
 
 #: templates/speciesSheet/charts.html:13
 msgid "decadely.obs"
-msgstr ""
+msgstr "Observations par décades"
 
 #: templates/speciesSheet/charts.html:18
-#, fuzzy
 msgid "bdefaut.obs"
 msgstr "Dernière observation"
 
@@ -502,15 +409,16 @@ msgstr "Dernière observation"
 msgid "author"
 msgstr "Auteur"
 
+#: templates/speciesSheet/descriptionMedia.html:16
+#: templates/speciesSheet/otherInformations.html:69
+msgid "description"
+msgstr "Description"
+
 #: templates/speciesSheet/identityCard.html:97
 msgid "check.species.sheet.inpn"
 msgstr "Voir la fiche espèce INPN"
 
-<<<<<<< HEAD
 #: templates/speciesSheet/identityCard.html:130
-=======
-#: templates/speciesSheet/identityCard.html:128
->>>>>>> 37d8296c (travail sur les modifications des graphiques)
 msgid "protection"
 msgstr "Statut de protection"
 
@@ -542,26 +450,22 @@ msgstr "Titre"
 msgid "date"
 msgstr "Date"
 
-#: templates/speciesSheet/otherInformations.html:139
+#: templates/speciesSheet/otherInformations.html:138
 msgid "organism.participation"
 msgstr "Participation à "
 
-#: templates/speciesSheet/otherInformations.html:147
+#: templates/speciesSheet/otherInformations.html:146
 msgid "organism.prospection"
 msgstr "Part d'aide à la prospection"
 
-#: templates/speciesSheet/otherInformations.html:153
+#: templates/speciesSheet/otherInformations.html:150
 msgid "check.organism.sheet"
 msgstr "Voir la fiche organisme"
 
-#: templates/speciesSheet/otherInformations.html:154
+#: templates/speciesSheet/otherInformations.html:151
 msgid "organism.sheet"
 msgstr "Fiche organisme"
 
 #: templates/taxoRankSheet/_main.html:47
 msgid "species.obs.for.tax"
 msgstr "Observation pour le taxon"
-
-#~ msgid "photo"
-#~ msgstr "Photo"
-
