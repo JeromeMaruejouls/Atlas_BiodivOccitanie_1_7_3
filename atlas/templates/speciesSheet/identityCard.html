@@ -64,6 +64,7 @@
                              data-original-title="{{ _('this.taxon.has.a.protected.status') }}"
                              data-placement="right"></a>
                 {% endif %}
+
                 {% if configuration.DISPLAY_PATRIMONIALITE and taxon.taxonSearch.patrimonial in configuration.PATRIMONIALITE.config %}
                     <img
                             class="caractEspece"
@@ -73,6 +74,97 @@
                             data-original-title="{{ configuration.PATRIMONIALITE.config[taxon.taxonSearch.patrimonial].text }}"
                             data-placement="right">
                 {% endif %}
+
+
+                {% if configuration.DISPLAY_BADGE_LRM and taxon.taxonSearch.lrm in configuration.BADGE_LRM.config %}
+                    <a href="{{taxon.taxonSearch.lrm_url}}" target="_blank">
+                        <img
+                                class="caractEspece"
+                                width="130px"
+                                src="{{ url_for('static', filename=configuration.BADGE_LRM.config[taxon.taxonSearch.lrm].icon) }}"
+                                data-toggle="tooltip"
+                                data-original-title="{{ configuration.BADGE_LRM.config[taxon.taxonSearch.lrm].text }}"
+                                data-placement="right">
+                    </a>
+                {% endif %}
+
+                {% if configuration.DISPLAY_BADGE_LRE and taxon.taxonSearch.lre in configuration.BADGE_LRE.config %}
+                    <a href="{{taxon.taxonSearch.lre_url}}" target="_blank">
+                        <img
+                                class="caractEspece"
+                                width="130px"
+                                src="{{ url_for('static', filename=configuration.BADGE_LRE.config[taxon.taxonSearch.lre].icon) }}"
+                                data-toggle="tooltip"
+                                data-original-title="{{ configuration.BADGE_LRE.config[taxon.taxonSearch.lre].text }}"
+                                data-placement="right">
+                    </a>
+                {% endif %}
+
+                {% if configuration.DISPLAY_BADGE_LRN and taxon.taxonSearch.lrn in configuration.BADGE_LRN.config %}
+                    <a href="{{taxon.taxonSearch.lrn_url}}" target="_blank">
+                        <img
+                                class="caractEspece"
+                                width="130px"
+                                src="{{ url_for('static', filename=configuration.BADGE_LRN.config[taxon.taxonSearch.lrn].icon) }}"
+                                data-toggle="tooltip"
+                                data-original-title="{{ configuration.BADGE_LRN.config[taxon.taxonSearch.lrn].text }}"
+                                data-placement="right">
+                    </a>
+                {% endif %}
+
+                {% if configuration.DISPLAY_BADGE_LRR and taxon.taxonSearch.lrr in configuration.BADGE_LRR.config and (taxon.taxonSearch.group2_inpn == 'Reptiles' or taxon.taxonSearch.group2_inpn == 'Amphibiens' or taxon.taxonSearch.group1_inpn == "Trachéophytes") %}
+                    <a href="{{taxon.taxonSearch.lrr_url}}" target="_blank">
+                        <img
+                                class="caractEspece"
+                                width="130px"
+                                src="{{ url_for('static', filename=configuration.BADGE_LRR.config[taxon.taxonSearch.lrr].icon_mp) }}"
+                                data-toggle="tooltip"
+                                data-original-title="{{ configuration.BADGE_LRR.config[taxon.taxonSearch.lrr].text_mp }}"
+                                data-placement="right">
+                    </a>
+                {% endif %}
+
+
+                
+                {% if configuration.DISPLAY_BADGE_LRR and taxon.taxonSearch.lrr in configuration.BADGE_LRR.config and taxon.taxonSearch.group2_inpn != 'Reptiles' and taxon.taxonSearch.group2_inpn != 'Amphibiens' and taxon.taxonSearch.group1_inpn != "Trachéophytes" %}
+                    <a href="{{taxon.taxonSearch.lrr_url}}" target="_blank">
+                        <img
+                                class="caractEspece"
+                                width="130px"
+                                src="{{ url_for('static', filename=configuration.BADGE_LRR.config[taxon.taxonSearch.lrr].icon) }}"
+                                data-toggle="tooltip"
+                                data-original-title="{{ configuration.BADGE_LRR.config[taxon.taxonSearch.lrr].text }}"
+                                data-placement="right">
+                    </a>
+                {% endif %}
+
+
+                {% if configuration.DISPLAY_BADGE_ZDET and (taxon.taxonSearch.zdet == 'REGION' or taxon.taxonSearch.zdet == 'ZONE') %}
+                    <a href="#" onclick="alert('{{ taxon.taxonSearch.zdet_url }}'); return false;">
+                    <!--<a href="{{taxon.taxonSearch.zdet_url}}" target="_blank">-->
+                        <img
+                                class="caractEspece"
+                                width="350px"
+                                src="{{ url_for('static', filename=configuration.BADGE_ZDET.config[taxon.taxonSearch.zdet].icon) }}"
+                                data-toggle="tooltip"
+                                data-original-title="{{ taxon.taxonSearch.zdet_citation }}"
+                                data-placement="right">
+                    </a>
+                {% endif %}
+
+
+                {% if configuration.DISPLAY_BADGE_EEE and (taxon.taxonSearch.eee == 'EEE') %}
+                    <a href="{{taxon.taxonSearch.eee_url}}" target="_blank">
+                        <img
+                                class="caractEspece"
+                                width="130px"
+                                src="{{ url_for('static', filename=configuration.BADGE_EEE.config[taxon.taxonSearch.eee].icon) }}"
+                                data-toggle="tooltip"
+                                data-original-title="{{ configuration.BADGE_EEE.config[taxon.taxonSearch.eee].text }}"
+                                data-placement="right">
+                    </a>
+                {% endif %}
+
 
                 <div id="taxonomy">
                     {% for taxon in taxonomyHierarchy %}
@@ -126,13 +218,17 @@
                                         <tr>
                                             <th> {{ _('common.name') }}</th>
                                             <th> {{ _('scientific.name') }}</th>
-                                            {% if configuration.PROTECTION %}
-                                                <th> {{ _('protection') }}</th>
-                                            {% endif %}
+                                            <th> {{ _('Protection') }}</th>
                                             {% if configuration.DISPLAY_PATRIMONIALITE %}
                                                 <th>{{ configuration.PATRIMONIALITE.label }}</th>
                                             {% endif %}
-                                            <th>{{ _('observations') }}</th>
+                                            <th> {{ _('LRM') }}</th>
+                                            <th> {{ _('LRE') }}</th>
+                                            <th> {{ _('LRN') }}</th>
+                                            <th> {{ _('LRR') }}</th>
+                                            <th> {{ _('ZDET') }}</th>
+                                            <th> {{ _('EEE') }}</th>
+                                            <th> {{ _('observations') }}</th>
                                             <th> {{ _('sheet') }}</th>
                                         </tr>
                                         </thead>
@@ -147,41 +243,140 @@
                                                     {% endif %}
                                                 </td>
                                                 <td> {{ child.lb_nom }} </td>
-                                                {% if configuration.PROTECTION %}
-                                                    <td>
-                                                        {% if child.protection != None %}
-                                                            <a href="https://inpn.mnhn.fr/espece/cd_nom/{{ taxon.taxonSearch.cd_ref }}/tab/statut"
-                                                                target="_blank">
-                                                                <img class="caractEspece" width="130px"
-                                                                        src="{{ url_for('static', filename='images/logo_protection.png') }}"
-                                                                        data-toggle="tooltip"
-                                                                        data-original-title="{{ _('this.taxon.has.a.protected.status') }}"
-                                                                        data-placement="right"></a>
-                                                        {% endif %}
-                                                    </td>
-                                                {% endif %}
-                                                {% if config.DISPLAY_PATRIMONIALITE %}
-                                                    <td>
-                                                        {% if child.patrimonial in configuration.PATRIMONIALITE.config %}
-                                                            <img
-                                                                    class="caractEspece" width="130px"
-                                                                    src="{{ url_for('static', filename=configuration.PATRIMONIALITE.config[child.patrimonial].icon) }}"
+                                                                                                <td>
+                                                    {% if child.protection != None %}
+                                                        <a href="https://inpn.mnhn.fr/espece/cd_nom/{{ taxon.taxonSearch.cd_ref }}/tab/statut"
+                                                            target="_blank">
+                                                            <img class="caractEspece" width="130px"
+                                                                    src="{{ url_for('static', filename='images/logo_protection.png') }}"
                                                                     data-toggle="tooltip"
-                                                                    data-original-title="{{ configuration.PATRIMONIALITE.config[child.patrimonial].text }}"
-                                                                    data-placement="right"
-                                                            >
+                                                                    data-original-title="{{ _('this.taxon.has.a.protected.status') }}"
+                                                                    data-placement="right"></a>
+                                                    {% endif %}
+                                                </td>
+<!--
+                                                <td>
+                                                    {% if child.patrimonial in configuration.PATRIMONIALITE.config %}
+                                                        <img
+                                                                class="caractEspece" width="130px"
+                                                                src="{{ url_for('static', filename=configuration.PATRIMONIALITE.config[child.patrimonial].icon) }}"
+                                                                data-toggle="tooltip"
+                                                                data-original-title="{{ configuration.PATRIMONIALITE.config[child.patrimonial].text }}"
+                                                                data-placement="right"
+                                                        >
+                                                    {% endif %}
+                                                </td>
+-->
+                                                <td>
+                                                    {% if config.DISPLAY_BADGE_LRM and child.lrm in configuration.BADGE_LRM.config %}
+                                                        <a href="{{child.lrm_url}}" target="_blank">
+                                                            <img
+                                                                class="caractEspece"
+                                                                width="130px"
+                                                                src="{{ url_for('static', filename=configuration.BADGE_LRM.config[child.lrm].icon) }}"
+                                                                data-toggle="tooltip"
+                                                                data-original-title="{{ config.BADGE_LRM.config[child.lrm].text }}"
+                                                                data-placement="right">
+                                                        </a>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if config.DISPLAY_BADGE_LRE and child.lre in configuration.BADGE_LRE.config %}
+                                                        <a href="{{child.lre_url}}" target="_blank">
+                                                            <img
+                                                                class="caractEspece"
+                                                                width="130px"
+                                                                src="{{ url_for('static', filename=configuration.BADGE_LRE.config[child.lre].icon) }}"
+                                                                data-toggle="tooltip"
+                                                                data-original-title="{{ config.BADGE_LRE.config[child.lre].text }}"
+                                                                data-placement="right">
+                                                        </a>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if config.DISPLAY_BADGE_LRN and child.lrn in configuration.BADGE_LRN.config %}
+                                                        <a href="{{child.lrn_url}}" target="_blank">
+                                                            <img
+                                                                class="caractEspece"
+                                                                width="130px"
+                                                                src="{{ url_for('static', filename=configuration.BADGE_LRN.config[child.lrn].icon) }}"
+                                                                data-toggle="tooltip"
+                                                                data-original-title="{{ config.BADGE_LRN.config[child.lrn].text }}"
+                                                                data-placement="right">
+                                                        </a>
+                                                    {% endif %}
+                                                </td>
+
+                                                
+<!-- Pour reptile amphibien et trachéophites, c'une LR sur Midi Pyrénées -->
+                                                {% if  taxon.taxonSearch.group2_inpn != 'Reptiles' and taxon.taxonSearch.group2_inpn != 'Amphibiens' and taxon.taxonSearch.group1_inpn != "Trachéophytes" %}}
+                                                    <td>
+                                                        {% if config.DISPLAY_BADGE_LRR and child.lrr in configuration.BADGE_LRR.config %}
+                                                            <a href="{{child.lrr_url}}" target="_blank">
+                                                                <img
+                                                                    class="caractEspece"
+                                                                    width="130px"
+                                                                    src="{{ url_for('static', filename=config.BADGE_LRR.config[child.lrr].icon) }}"
+                                                                    data-toggle="tooltip"
+                                                                    data-original-title="{{ config.BADGE_LRR.config[child.lrr].text }}"
+                                                                    data-placement="right">
+                                                            </a>
+                                                        {% endif %}
+                                                    </td>
+                                                {% else %}#}
+                                                    <td>
+                                                        {% if config.DISPLAY_BADGE_LRR and child.lrr in configuration.BADGE_LRR.config %}
+                                                            <a href="{{child.lrr_url}}" target="_blank">
+                                                                <img
+                                                                    class="caractEspece"
+                                                                    width="130px"
+                                                                    src="{{ url_for('static', filename=config.BADGE_LRR.config[child.lrr].icon_mp) }}"
+                                                                    data-toggle="tooltip"
+                                                                    data-original-title="{{ config.BADGE_LRR.config[child.lrr].text_mp }}"
+                                                                    data-placement="right">
+                                                            </a>
                                                         {% endif %}
                                                     </td>
                                                 {% endif %}
+
+                                                <td>
+                                                    {% if config.DISPLAY_BADGE_ZDET and child.zdet in configuration.BADGE_ZDET.config %}
+                                                        <a href="{{child.zdet_url}}" target="_blank">
+                                                            <img
+                                                                class="caractEspece"
+                                                                width="350px"
+                                                                src="{{ url_for('static', filename=config.BADGE_ZDET.config[child.zdet].icon) }}"
+                                                                data-toggle="tooltip"
+                                                                data-original-title="{{ config.BADGE_ZDET.config[child.zdet].text }}"
+                                                                data-placement="right">
+                                                        </a>
+                                                    {% endif %}
+                                                </td>
+
+                                                <td>
+                                                    {% if config.DISPLAY_BADGE_EEE and child.eee in configuration.BADGE_EEE.config %}
+                                                        <a href="{{child.eee_url}}" target="_blank">
+                                                            <img
+                                                                class="caractEspece"
+                                                                width="350px"
+                                                                src="{{ url_for('static', filename=config.BADGE_EEE.config[child.eee].icon) }}"
+                                                                data-toggle="tooltip"
+                                                                data-original-title="{{ config.BADGE_EEE.config[child.eee].text }}"
+                                                                data-placement="right">
+                                                        </a>
+                                                    {% endif %}
+                                                </td>
+                                                
                                                 <td> {{ child.nb_obs | pretty }} </td>
                                                 <td>
                                                     <a href="{{ url_for('main.ficheEspece', cd_nom=child.cd_ref) }}">
                                                         <span id="ficheGlyficon" data-toggle="tooltip"
-                                                                data-original-title="{{ _('check.species.sheet')}}"
-                                                                data-placement="right"
-                                                                class="fas fa-list"></span>
+                                                              data-original-title="{{ _('check.species.sheet')}}"
+                                                              data-placement="right"
+                                                              class="fas fa-list"></span>
                                                     </a>
                                                 </td>
+
                                             </tr>
                                         {% endfor %}
                                         </tbody>

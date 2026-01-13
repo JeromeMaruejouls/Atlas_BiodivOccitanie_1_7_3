@@ -8,7 +8,6 @@ from atlas.env import db
 Base = declarative_base()
 metadata = MetaData()
 
-
 class VmTaxons(Base):
     __tablename__ = "vm_taxons"
     __table_args__ = {"schema": "atlas"}
@@ -32,3 +31,21 @@ class VmTaxons(Base):
     protection_stricte = Column("protection_stricte", String(255))
     yearmin = Column("yearmin", Float(53))
     yearmax = Column("yearmax", Float(53))
+    badge_lrm = Column("badge_lrm", String(255))
+    badge_lrm_citation = Column("badge_lrm_citation", String(255))
+    badge_lrm_url = Column("badge_lrm_url", String(255))
+    badge_lre = Column("badge_lre", String(255))
+    badge_lre_citation = Column("badge_lre_citation", String(255))
+    badge_lre_url = Column("badge_lre_url", String(255))
+    badge_lrn = Column("badge_lrn", String(255))
+    badge_lrn_citation = Column("badge_lrn_citation", String(255))
+    badge_lrn_url = Column("badge_lrn_url", String(255))
+    badge_lrr = Column("badge_lrr", String(255))
+    badge_lrr_citation = Column("badge_lrr_citation", String(255))
+    badge_lrr_url= Column("badge_lrr_url", String(255))
+    badge_zdet = Column("badge_zdet", String(20))
+    badge_zdet_citation = Column("badge_zdet_citation", String(255))
+    badge_zdet_url = Column("badge_zdet_url", String(255))
+    badge_eee = Column("badge_eee", String(20))
+    badge_eee_citation = Column("badge_eee_citation", String(255))
+    badge_eee_url = Column("badge_eee_url", String(255))

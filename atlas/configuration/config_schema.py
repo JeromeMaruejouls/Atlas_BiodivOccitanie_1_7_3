@@ -348,6 +348,12 @@ class AtlasConfig(Schema):
     ATTR_VIMEO = fields.Integer(load_default=9)
     PROTECTION = fields.Boolean(load_default=False)
     DISPLAY_PATRIMONIALITE = fields.Boolean(load_default=False)
+    DISPLAY_BADGE_LRM = fields.Boolean(load_default=False)
+    DISPLAY_BADGE_LRE = fields.Boolean(load_default=False)
+    DISPLAY_BADGE_LRN = fields.Boolean(load_default=False)
+    DISPLAY_BADGE_LRR = fields.Boolean(load_default=False)
+    DISPLAY_BADGE_ZDET = fields.Boolean(load_default=False)
+    DISPLAY_BADGE_EEE = fields.Boolean(load_default=False)
     PATRIMONIALITE = fields.Dict(
         load_default={
             "label": "Patrimonial",
@@ -357,6 +363,204 @@ class AtlasConfig(Schema):
                     "text": "Ce taxon est patrimonial",
                 }
             },
+        }
+    )
+    BADGE_LRM = fields.Dict(
+        load_default={
+            "label": "LRM",
+            "config": {
+                "LC": {
+                    "icon": "custom/images/badges/LRM_lc.png",
+                    "text": "Liste Rouge Mondiale : Préoccupation mineure",
+                },
+                "NT": {
+                    "icon": "custom/images/badges/LRM_nt.png",
+                    "text": "Liste Rouge Mondiale : Quasi menacé",
+                },
+                "VU": {
+                    "icon": "custom/images/badges/LRM_vu.png",
+                    "text": "Liste Rouge Mondiale : Vulnérable",
+                },
+                "NA": {
+                    "icon": "custom/images/badges/LRM_na.png",
+                    "text": "Liste Rouge Mondiale : Non Applicable",
+                },
+                "DD": {
+                    "icon": "custom/images/badges/LRM_dd.png",
+                    "text": "Liste Rouge Mondiale : Données insuffisantes",
+                },
+                "EN": {
+                    "icon": "custom/images/badges/LRM_en.png",
+                    "text": "Liste Rouge Mondiale : En Danger",
+                },
+                "NE": {
+                    "icon": "custom/images/badges/LRM_ne.png",
+                    "text": "Liste Rouge Mondiale : Non évalué",
+                },
+                "CR": {
+                    "icon": "custom/images/badges/LRM_cr.png",
+                    "text": "Liste Rouge Mondiale : En danger critique",
+                },
+            },
+        }
+    )
+    BADGE_LRE = fields.Dict(
+        load_default={
+            "label": "LRE",
+            "config": {
+                "LC": {
+                    "icon": "custom/images/badges/LRE_lc.png",
+                    "text": "Liste Rouge Européenne : Préoccupation mineure",
+                },
+                "NT": {
+                    "icon": "custom/images/badges/LRE_nt.png",
+                    "text": "Liste Rouge Européenne : Quasi menacé",
+                },
+                "VU": {
+                    "icon": "custom/images/badges/LRE_vu.png",
+                    "text": "Liste Rouge Européenne : Vulnérable",
+                },
+                "NA": {
+                    "icon": "custom/images/badges/LRE_na.png",
+                    "text": "Liste Rouge Européenne : Non Applicable",
+                },
+                "DD": {
+                    "icon": "custom/images/badges/LRE_dd.png",
+                    "text": "Liste Rouge Européenne : Données insuffisantes",
+                },
+                "EN": {
+                    "icon": "custom/images/badges/LRE_en.png",
+                    "text": "Liste Rouge Européenne : En Danger",
+                },
+                "NE": {
+                    "icon": "custom/images/badges/LRE_ne.png",
+                    "text": "Liste Rouge Européenne : Non évalué",
+                },
+                "CR": {
+                    "icon": "custom/images/badges/LRE_cr.png",
+                    "text": "Liste Rouge Européenne : En danger critique",
+                },
+            },
+        }
+    )
+    BADGE_LRN = fields.Dict(
+        load_default={
+            "label": "LRN",
+            "config": {
+                "LC": {
+                    "icon": "custom/images/badges/LRN_lc.png",
+                    "text": "Liste Rouge Nationale : Préoccupation mineure",
+                },
+                "NT": {
+                    "icon": "custom/images/badges/LRN_nt.png",
+                    "text": "Liste Rouge Nationale : Quasi menacé",
+                },
+                "VU": {
+                    "icon": "custom/images/badges/LRN_vu.png",
+                    "text": "Liste Rouge Nationale : Vulnérable",
+                },
+                "NA": {
+                    "icon": "custom/images/badges/LRN_na.png",
+                    "text": "Liste Rouge Nationale : Non Applicable",
+                },
+                "DD": {
+                    "icon": "custom/images/badges/LRN_dd.png",
+                    "text": "Liste Rouge Nationale : Données insuffisantes",
+                },
+                "EN": {
+                    "icon": "custom/images/badges/LRN_en.png",
+                    "text": "Liste Rouge Nationale : En Danger",
+                },
+                "NE": {
+                    "icon": "custom/images/badges/LRN_ne.png",
+                    "text": "Liste Rouge Nationale : Non évalué",
+                },
+                "CR": {
+                    "icon": "custom/images/badges/LRN_cr.png",
+                    "text": "Liste Rouge Nationale : En danger critique",
+                },
+            },
+        }
+    )
+    BADGE_LRR = fields.Dict(
+        load_default={
+            "label": "LRR",
+            "config": {
+                "LC": {
+                    "icon": "custom/images/badges/LRR_lc.png",
+                    "text": "Liste Rouge Régionale : Préoccupation mineure",
+                    "icon_mp": "custom/images/badges/LRR_MP_lc.png",
+                    "text_mp": "Liste Rouge Midi Pyrénées : Préoccupation mineure",
+                },
+                "NT": {
+                    "icon": "custom/images/badges/LRR_nt.png",
+                    "text": "Liste Rouge Régionale : Quasi menacé",
+                    "icon_mp": "custom/images/badges/LRR_MP_nt.png",
+                    "text_mp": "Liste Rouge Midi Pyrénées : Quasi menacé",
+                },
+                "VU": {
+                    "icon": "custom/images/badges/LRR_vu.png",
+                    "text": "Liste Rouge Régionale : Vulnérable",
+                    "icon_mp": "custom/images/badges/LRR_MP_vu.png",
+                    "text_mp": "Liste Rouge Midi Pyrénées : Vulnérable",
+                },
+                "NA": {
+                    "icon": "custom/images/badges/LRR_na.png",
+                    "text": "Liste Rouge Régionale : Non Applicable",
+                    "icon_mp": "custom/images/badges/LRR_MP_na.png",
+                    "text_mp": "Liste Rouge Midi Pyrénées : Non Applicable",
+                },
+                "DD": {
+                    "icon": "custom/images/badges/LRR_dd.png",
+                    "text": "Liste Rouge Régionale : Données insuffisantes",
+                    "icon_mp": "custom/images/badges/LRR_MP_dd.png",
+                    "text_mp": "Liste Rouge Midi Pyrénées : Données insuffisantes",
+                },
+                "EN": {
+                    "icon": "custom/images/badges/LRR_en.png",
+                    "text": "Liste Rouge Régionale : En Danger",
+                    "icon_mp": "custom/images/badges/LRR_MP_en.png",
+                    "text_mp": "Liste Rouge Midi Pyrénées : En Danger",
+                },
+                "NE": {
+                    "icon": "custom/images/badges/LRR_ne.png",
+                    "text": "Liste Rouge Régionale : Non évalué",
+                    "icon_mp": "custom/images/badges/LRR_MP_ne.png",
+                    "text_mp": "Liste Rouge Midi Pyrénées : Non évalué",
+                },
+                "CR": {
+                    "icon": "custom/images/badges/LRR_cr.png",
+                    "text": "Liste Rouge Régionale : En danger critique",
+                    "icon_mp": "custom/images/badges/LRR_MP_cr.png",
+                    "text_mp": "Liste Rouge Midi Pyrénées : En danger critique",
+                },
+            }
+        }
+    )
+    BADGE_ZDET = fields.Dict(
+        load_default={
+            "label": "ZDET",
+            "config": {
+                "REGION": {
+                    "icon": "custom/images/badges/ZDET_oc.png",
+                    "text": "Espèce déterminante ZNIEFF sur l'ensemble de la région",  
+                },
+                "ZONE": {
+                    "icon": "custom/images/badges/ZDET.png",
+                    "text": "Espèce déterminante ZNIEFF dans une zone de la région",  
+                },
+            }
+        }
+    )
+    BADGE_EEE = fields.Dict(
+        load_default={
+            "label": "EEE",
+            "config": {
+                "EEE": {
+                    "icon": "custom/images/badges/EEE.png",
+                    "text": "Espèce exotique envahissante",  
+                },
+            }
         }
     )
     STATIC_PAGES = fields.Dict(
