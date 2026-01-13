@@ -145,3 +145,11 @@
   .d-none {
     display: none;
   }
+
+/* boutons vers les fiches orga sur les fiches especes */ 
+/* on rajoute la spécificité "a" sinon c'est écrasé par les liens en vert */
+  a.btn-organisms-sheet{
+    background-color: #095773;
+    color: white;
+  }
+  
