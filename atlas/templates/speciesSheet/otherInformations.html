@@ -85,12 +85,24 @@
                     <div id="communes" class="tab-pane fade show active">
                 {% endif %}
                 <p>
-                    {% for com in communes %}
-                        <a href="{{ url_for('main.ficheCommune', insee = com.insee) }}">{{ com.commune_maj }}</a>
-                        {% if not loop.last %}
-                            -
-                        {% endif %}
-                    {% endfor %}
+                    <span id="communes-list">
+                        {% for com in communes[:100] %}
+                            <a href="{{ url_for('main.ficheCommune', insee=com.insee) }}">{{ com.commune_maj }}</a>{% if not loop.last %} - {% endif %}
+                        {% endfor %}
+
+                        <span id="more-communes" class="d-none">
+                            {% if communes|length > 100 %}
+                                - 
+                                {% for com in communes[100:] %}
+                                    <a href="{{ url_for('main.ficheCommune', insee=com.insee) }}">{{ com.commune_maj }}</a>{% if not loop.last %} - {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </span>
+                    </span>
+
+                    {% if communes|length > 100 %}
+                        <button id="toggle-communes-btn" class="btn btn-sm btn-link">Afficher plus</button>
+                    {% endif %}
                 </p>
                 </div>
 
@@ -98,21 +110,21 @@
                 {% if configuration.DISPLAY_OBSERVERS %}
                     <div id="observateurs" class="tab-pane fade">
                         <span id="observers-list">
-                            {% for o in observers[:10] %}
+                            {% for o in observers[:100] %}
                                 <span>{{ o }}</span>{% if not loop.last %} - {% endif %}
                             {% endfor %}
 
                             <span id="more-observers" class="d-none">
-                                {% if observers|length > 10 %}
+                                {% if observers|length > 100 %}
                                     - 
-                                    {% for o in observers[10:] %}
+                                    {% for o in observers[100:] %}
                                         <span>{{ o }}</span>{% if not loop.last %} - {% endif %}
                                     {% endfor %}
                                 {% endif %}
                             </span>
                         </span>
 
-                        {% if observers|length > 10 %}
+                        {% if observers|length > 100 %}
                             <button id="toggle-observers-btn" class="btn btn-sm btn-link">Afficher plus</button>
                         {% endif %}
                     </div>
@@ -156,12 +168,14 @@
                                         {% endif %}
                                     </strong>
                                     <br>{{ _('organism.prospection') }} : <strong>{{ "%.2f"|format(o['nb_observation']/taxon.taxonSearch.nb_obs*100) }} %</strong>
-                                  </div>
-                                      <h3><a class="badge badge-primary" href="{{ url_for('main.ficheOrganism', id_organism=o['id_organism']) }}"
-                                          data-toggle="tooltip"  style="color: white;"
-                                          title="{{ _('check.organism.sheet') }}" data-placement="left">
-                                        <i class="fas fa-list fa-fw"></i> {{ _('organism.sheet') }}</i>
-                                      </a></h3>
+                                    <span class="float-right">
+                                        <h3><a class="badge badge-primary" href="{{ url_for('main.ficheOrganism', id_organism=o['id_organism']) }}"
+                                            data-toggle="tooltip"  style="color: white;"
+                                            title="{{ _('check.organism.sheet') }}" data-placement="left">
+                                         <i class="fas fa-list fa-fw"></i> {{ _('organism.sheet') }}</i>
+                                        </a></h3>
+                                    </span>
+
                                 </div>
                             {% endfor %}
                         </ul>
