@@ -150,6 +150,5 @@
 /* on rajoute la spécificité "a" sinon c'est écrasé par les liens en vert */
   a.btn-organisms-sheet{
     background-color: #095773;
-    color: white;
+    color: white !important;
   }
-  
