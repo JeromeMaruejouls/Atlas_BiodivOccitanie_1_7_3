@@ -97,12 +97,24 @@
                 <!--- oberservers tab-->
                 {% if configuration.DISPLAY_OBSERVERS %}
                     <div id="observateurs" class="tab-pane fade">
-                        {% for o in observers %}
-                            {{ o }}
-                            {% if  not loop.last %}
-                                -
-                            {% endif %}
-                        {% endfor %}
+                        <span id="observers-list">
+                            {% for o in observers[:10] %}
+                                <span>{{ o }}</span>{% if not loop.last %} - {% endif %}
+                            {% endfor %}
+
+                            <span id="more-observers" class="d-none">
+                                {% if observers|length > 10 %}
+                                    - 
+                                    {% for o in observers[10:] %}
+                                        <span>{{ o }}</span>{% if not loop.last %} - {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </span>
+                        </span>
+
+                        {% if observers|length > 10 %}
+                            <button id="toggle-observers-btn" class="btn btn-sm btn-link">Afficher plus</button>
+                        {% endif %}
                     </div>
                 {% endif %}
 
