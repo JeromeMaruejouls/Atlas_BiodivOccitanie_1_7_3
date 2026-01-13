@@ -140,15 +140,15 @@
                                 <div class="pictoImgList mr-2" data-toggle="tooltip" data-original-title="{{ taxon.group2_inpn }}"
                                  data-placement="right">
                                     <span class="float-right"></span>
-                                    <div class="pictoImgList mr-2" data-toggle="tooltip" data-original-title="{{ taxon.group2_inpn }}" style='width: 150px;
+                                    <div class="pictoImgList mr-2" data-toggle="tooltip" data-original-title="{{ taxon.group2_inpn }}" style='width: 150px;'
                                     data-placement="right">
                                         {% if o['url_logo']!= None %}
                                             {% if not o['url_organism'] in (None, '') %}
                                             <a href="{{ o['url_organism'] }}" target="_blank">
-                                                <img class="mx-auto d-block" src="{{ o['url_logo'] }}" style='max-height: 90px; height: auto;'>
+                                                <img class="mx-auto d-block" src="{{ o['url_logo'] }}" style='max-width: 150px; width: auto; max-height: 90px; height: auto;'>
                                             </a>
                                             {% else %}
-                                                <img class="mx-auto d-block" src="{{ o['url_logo'] }}" style='max-height: 90px; height: auto;'>
+                                                <img class="mx-auto d-block" src="{{ o['url_logo'] }}" style='max-width: 150px; width: auto; max-height: 90px; height: auto;'>
                                             {% endif %}
                                         {% endif %}
                                     </div>
@@ -170,11 +170,15 @@
                                     </strong>
                                     <br>{{ _('organism.prospection') }} : <strong>{{ "%.2f"|format(o['nb_observation']/taxon.taxonSearch.nb_obs*100) }} %</strong>
                                     <span class="float-right">
-                                        <h3><a class="badge badge-primary" href="{{ url_for('main.ficheOrganism', id_organism=o['id_organism']) }}"
-                                            data-toggle="tooltip"  style="color: white;"
-                                            title="{{ _('check.organism.sheet') }}" data-placement="left">
-                                         <i class="fas fa-list fa-fw"></i> {{ _('organism.sheet') }}</i>
-                                        </a></h3>
+                                        <h3>
+                                        <a href="{{ url_for('main.ficheOrganism', id_organism=o['id_organism']) }}"
+                                            class="btn btn-sm btn-organisms-sheet"
+                                            data-toggle="tooltip"
+                                            title="{{ _('check.organism.sheet') }}"
+                                            data-placement="left">
+                                            <i class="fas fa-list fa-fw"></i> {{ _('organism.sheet') }}
+                                        </a>
+                                        </h3>
                                     </span>
 
                                 </div>

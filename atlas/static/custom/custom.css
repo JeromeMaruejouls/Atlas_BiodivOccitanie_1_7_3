@@ -140,3 +140,8 @@
   .slidepartenaireindex img {
     max-height: 150px;
   }
+
+/* pour masquer des éléments de listes (sp sheets) par exemple */  
+  .d-none {
+    display: none;
+  }
