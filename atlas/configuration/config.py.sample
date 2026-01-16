@@ -59,6 +59,10 @@ MAP = {
     'ENABLE_SLIDER': True
 }
 
+
+#Couleur selon la dernière obs (<5 ans, 5 à 10 ans, +10 ans) "last obs" ou le nombre d'obs "nb obs"
+TYPE_MAILLE = 'last obs'
+
 ###########################
 ###########################
 #### Security  Config #####

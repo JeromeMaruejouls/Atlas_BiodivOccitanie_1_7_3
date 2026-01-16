@@ -48,12 +48,13 @@ if not current_app.config["AFFICHAGE_MAILLE"]:
         observations = {
             "point": vmObservationsRepository.searchObservationsChilds(session, cd_ref),
             "maille": vmObservationsMaillesRepository.getObservationsMaillesChilds(
-                session, cd_ref
+                session,
+                cd_ref
             ),
         }
         session.close()
         return jsonify(observations)
-
+    
 
 @api.route("/observationsMaille/<int(signed=True):cd_ref>", methods=["GET"])
 def getObservationsMailleAPI(cd_ref):

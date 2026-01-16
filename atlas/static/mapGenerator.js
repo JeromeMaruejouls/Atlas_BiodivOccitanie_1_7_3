@@ -69,7 +69,7 @@ function generateMap(zoomHomeButton) {
   baseMap = {};
   baseMap[configuration.MAP.FIRST_MAP.tileName] = firstMapTile;
 
-  var map = L.map("map", {
+  var map = L.map("datemap", {
     crs: L.CRS.EPSG3857,
     center: configuration.MAP.LAT_LONG,
     maxBounds: configuration.MAP.MAX_BOUNDS,
@@ -101,6 +101,7 @@ function generateMap(zoomHomeButton) {
     $.getJSON(url_limit_territory, function (json) {
       const territoryGeoJson = L.geoJson(json, {
         style: territoryStyle,
+        attribution: 'Limites territoire'
       });
       territoryGeoJson.addTo(map);
       // map.fitBounds(territoryGeoJson.getBounds())
@@ -226,12 +227,23 @@ function onEachFeaturePoint(feature, layer) {
 }
 
 // popup Maille
-function onEachFeatureMaille(feature, layer) {
+function onEachFeatureMailleFicheEsp(feature, layer) {
   popupContent =
     "<b>Nombre d'observation(s): </b>" +
     feature.properties.nb_observations +
     "</br> <b> Dernière observation: </b>" +
-    feature.properties.last_observation +
+    feature.properties.lastyear +
+    " ";
+  layer.bindPopup(popupContent);
+}
+
+// popup Maille Last Obs
+function onEachFeatureMailleLastObsFicheEsp(feature, layer) {
+  popupContent =
+    "<b> Dernière observation: </b>" +
+    feature.properties.lastyear +
+    "</br> <b>Nombre d'observation(s): </b>" +
+    feature.properties.nb_observations +
     " ";
   layer.bindPopup(popupContent);
 }
@@ -385,7 +397,7 @@ function getColor(nb,dl) {
   }
 }
 
-function styleMaille(feature) {
+function styleMailleFicheEsp(feature) {
   return {
     fillColor: getColor(feature.properties.nb_observations,feature.properties.diffusion_level),
     weight: 1,
@@ -394,7 +406,43 @@ function styleMaille(feature) {
   };
 }
 
+/*
+function getColorLastObs(last_obs) {
+    return last_obs >= 2024 ? "#800026"
+        : last_obs >= 2022 ? "#BD0026"
+        : last_obs >= 2012 ? "#FC4E2A"
+        : last_obs >= 1990 ? "#FEB24C"
+        : last_obs >= 1960 ? "#FED976"
+        : "#FFEDA0";
+    } 
+*/
+
+function getColorLastObs(last_obs) {
+    return last_obs >= 2023 ? "#146152"
+        : last_obs >= 2016 ? "#44803F"
+        : last_obs >= 2006 ? "#B4CF66"
+        : last_obs >= 1990 ? "#FFEC5C"
+        : last_obs >= 1970 ? "#FF5A33"
+        : "#BB1515";
+    } 
+
+function styleMailleLastObsFicheEsp(feature) {
+  return {
+    fillColor: getColorLastObs(feature.properties.lastyear),
+    weight: 1,
+    color: mailleBorderColor,
+    fillOpacity: 0.9,
+  };
+}
+
+
 function generateLegendMaille(diff_level) {
+  // Supprimer la légende existante si elle existe
+  var existingLegend = L.DomUtil.get("contour-legend");
+  if (existingLegend) {
+    existingLegend.parentNode.removeChild(existingLegend);
+  }
+
   // check if contour already exists
   if (L.DomUtil.get("contour-legend")) {
     return
@@ -423,6 +471,42 @@ function generateLegendMaille(diff_level) {
   legend.addTo(map);
 }
 
+
+function generateLegendMailleLastObs() {
+  // Supprimer la légende existante si elle existe
+  var existingLegend = L.DomUtil.get("contour-legend");
+  if (existingLegend) {
+    existingLegend.parentNode.removeChild(existingLegend);
+  }
+
+  // check if contour already exists
+  if (L.DomUtil.get("contour-legend")) {
+    return
+  }
+  legend.onAdd = function (map) {
+    var div = L.DomUtil.create("div", "info legend"),
+      dates = [0, 1970, 1990, 2006, 2016, 2023],
+      labels = ["<strong>Dernière année<br>d'observation</strong> <br>"];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < dates.length; i++) {
+      date_n1 = dates[i + 1] ? `&ndash; ${dates[i + 1] } <br>` : "+"
+      labels.push(
+        `<i style="background: ${getColorLastObs(dates[i] + 1)}"></i>
+          ${dates[i]}${date_n1}
+        `
+      );
+    }
+    // Add id to get it above
+    div.id = "contour-legend"
+    div.innerHTML = labels.join("<br>");
+
+    return div;
+  };
+
+  legend.addTo(map);
+}
+
 // Geojson Maille
 function generateGeojsonMaille(observations, yearMin, yearMax) {
   var i = 0;
@@ -435,7 +519,7 @@ function generateGeojsonMaille(observations, yearMin, yearMax) {
       properties = {
         id_maille: idMaille,
         nb_observations: 1,
-        last_observation: observations[i].annee,
+        lastyear: observations[i].annee,
         diffusion_level: observations[i].diffusion_level, // MODIF JEROME
         tabDateobs: [new Date(observations[i].dateobs)],
       };
@@ -448,8 +532,8 @@ function generateGeojsonMaille(observations, yearMin, yearMax) {
           properties.nb_observations += observations[j].nb_observations;
           properties.tabDateobs.push(new Date(observations[i].dateobs));
         }
-        if (observations[j].annee >= properties.last_observation) {
-          properties.last_observation = observations[j].annee;
+        if (observations[j].annee >= properties.lastyear) {
+          properties.lastyear = observations[j].annee;
         }
         j = j + 1;
       }
@@ -468,20 +552,64 @@ function generateGeojsonMaille(observations, yearMin, yearMax) {
   return myGeoJson;
 }
 
+// Affichage des mailles des fiches especes :
+
+// GeoJson Point
+function generateGeojsonMailleFicheEspece(
+  geojsonMaille,
+  yearMin,
+  yearMax,
+  sliderTouch
+) {
+  var filteredGeoJsonMaille = Object.assign({}, geojsonMaille);
+  // si on a touché le slider on filtre sinon on retourne directement le geojson
+  if (yearMin && yearMax && sliderTouch) {
+    filteredGeoJsonMaille.features = geojsonMaille.features.filter(function (
+      obs
+    ) {
+      return obs.properties.lastyear >= yearMin && obs.properties.lastyear <= yearMax;
+    });
+    return filteredGeoJsonMaille;
+  } else {
+    return filteredGeoJsonMaille;
+  }
+}
+
 // Display Maille layer
 
-function displayMailleLayerFicheEspece(observationsMaille) {
+function loadMailleLayerFicheEspece(observationsMaille) {
+  console.log('Génération mailles par obs');
   myGeoJson = observationsMaille;
-  currentLayer = L.geoJson(myGeoJson, {
-    onEachFeature: onEachFeatureMaille,
-    style: styleMaille,
+  nbObsMailleLayer = L.geoJson(myGeoJson, {
+    onEachFeature: onEachFeatureMailleFicheEsp,
+    style: styleMailleFicheEsp,
+    attribution: 'Mailles LR par nb obs'
   });
-  currentLayer.addTo(map);
-  // map.fitBounds(currentLayer.getBounds()); ZOOM FUNCTION ON SPECIES SHEET MAILLE OBSERVATIONS DISPLAY
-
-  // ajout de la légende
-  generateLegendMaille(myGeoJson.features[0].properties.diffusion_level)  // MODIF JEROME
 }
+
+function displayMailleLayerFicheEspece() {
+  nbObsMailleLayer.addTo(map);
+  // ajout de la légende (si la properties n'existe pas, on fixe à 5)
+  generateLegendMaille(myGeoJson.features[0].properties.diffusion_level ?? 5)  // MODIF JEROME
+}
+
+function loadMailleLastObsLayerFicheEspece(observationsMaille) {
+  console.log('Génération mailles par date');
+  myGeoJson = observationsMaille;
+  lastObsMailleLayer = L.geoJson(myGeoJson, {
+    onEachFeature: onEachFeatureMailleLastObsFicheEsp,
+    style: styleMailleLastObsFicheEsp,
+    attribution: 'Mailles LR par date de dernière obs'
+  });
+}
+
+function displayMailleLastObsLayerFicheEspece() {
+  lastObsMailleLayer.addTo(map);
+  // ajout de la légende
+  generateLegendMailleLastObs()  // MODIF JEROME
+}
+
+// Fin affichage des des mailles Fiches Especes
 
 function generateGeojsonGridArea(observations) {
   var i = 0;
@@ -493,15 +621,15 @@ function generateGeojsonGridArea(observations) {
     properties = {
       id_maille: idMaille,
       nb_observations: 1,
-      last_observation: observations[i].annee,
+      lastyear: observations[i].annee,
       diffusion_level: observations[i].diffusion_level // MODIF JEROME
     };
     var j = i + 1;
     while (j < observations.length && observations[j].id_maille <= idMaille) {
       properties.nb_observations += observations[j].nb_observations;
 
-      if (observations[j].annee >= properties.last_observation) {
-        properties.last_observation = observations[j].annee;
+      if (observations[j].annee >= properties.lastyear) {
+        properties.lastyear = observations[j].annee;
       }
       j = j + 1;
     }
@@ -520,8 +648,9 @@ function generateGeojsonGridArea(observations) {
 function displayGridLayerArea(observations) {
     myGeoJson = generateGeojsonGridArea(observations);
   currentLayer = L.geoJson(myGeoJson, {
-    onEachFeature: onEachFeatureMaille,
-    style: styleMaille,
+    onEachFeature: onEachFeatureMailleFicheEsp,
+    style: styleMailleFicheEsp,
+    attribution: 'GridLayerArea'
   });
   currentLayer.addTo(map);
   if (currentLayer.getBounds().isValid()) {
@@ -529,7 +658,7 @@ function displayGridLayerArea(observations) {
   }
 
   // ajout de la légende
-  generateLegendMaille(myGeoJson.features[0].properties.diffusion_level)  // MODIF JEROME
+  generateLegendMaille(myGeoJson.features[0].properties.diffusion_level ?? 5)  // MODIF JEROME
 }
 
 // GeoJson Point
@@ -583,6 +712,7 @@ function displayMarkerLayerFicheEspece(
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng, pointDisplayOptionsFicheEspece(feature));
     },
+    attribution: 'Point Layer'
   });
   if (myGeoJson.features.length > configuration.LIMIT_CLUSTER_POINT) {
     newLayer = currentLayer;
@@ -801,6 +931,7 @@ function buildSpeciesEntries(taxons) {
   return rows.join('\n');
 }
 
+
 function onEachFeatureMailleLastObs(feature, layer) {
   title = `${feature.properties.taxons.length} espèces observées dans la maille &nbsp;: `;
   rows = buildSpeciesEntries(feature.properties.taxons);
@@ -946,10 +1077,7 @@ function generateSliderOnMap() {
     },
 
     onAdd: function (map) {
-      var sliderContainer = L.DomUtil.create(
-        "div",
-        "leaflet-bar leaflet-control leaflet-slider-control"
-      );
+      var sliderContainer = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-slider-control');
 
       sliderContainer.style.backgroundColor = "white";
       sliderContainer.style.width = "300px";
@@ -981,4 +1109,15 @@ function generateSliderOnMap() {
 
   $("#yearMax").html("&nbsp;&nbsp;&nbsp;&nbsp;" + YEARMAX);
   $("#yearMin").html(taxonYearMin + "&nbsp;&nbsp;&nbsp;&nbsp");
+}
+
+
+function removeAllLayerFromMap() {
+  var couchesASupprimer = [nbObsMailleLayer, lastObsMailleLayer, currentLayer];
+
+  couchesASupprimer.forEach(function(couche) {
+      if (couche && map.hasLayer(couche)) {
+          map.removeLayer(couche);
+      }
+  });
 }

@@ -285,7 +285,7 @@ h3.title-spaced {
   clear: both;
 }
 
-#map {
+#map, #datemap, #nbmap {
   width: 100%;
   height: 600px;
 }

@@ -5,7 +5,7 @@ var map = generateMap(zoomHomeButton);
 var legend = L.control({position: 'bottomright'});
 
 map.scrollWheelZoom.disable();
-$('#map').click(function(){
+$('#map, #datemap, #nbmap').click(function(){
   map.scrollWheelZoom.enable();
 })
 

@@ -2,11 +2,26 @@
     <div class="card mt-4" id="mapPanel mt-4">
         <div class="row">
             <div class="col-sm-10" id="mapContainer">
-                <div id="map">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <button type="button" class="nav-link active" id="datemapTab">
+                            Par date de la dernière observation
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link" id="nbmapTab">
+                            Par nombre d'observations
+                        </button>
+                    </li>
+                </ul>
+
+          <!-- Tab panes -->
+               <!-- Contenu unique affiché en permanence -->
+                <div id="datemap">
                     <img id="loadingGif" src="">
                     {% include 'templates/core/loaderSpinner.html' %}
                 </div>
-            </div>
+            </div>  
             <div class="col-sm-2" id="mapStat">
                 <ul>
                     <li>

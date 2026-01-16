@@ -230,6 +230,8 @@
                         }).done(function (observations) {
                             // $("#loadingGif").hide();
                             {#map.removeLayer(currentLayer);#}
+                            {#datemap.removeLayer(currentLayer);#}
+                            {#nbmap.removeLayer(currentLayer);#}
 
                             if (configuration.AFFICHAGE_MAILLE) {
                                 var geoJsonDatas = observations['maille'];
@@ -441,7 +443,7 @@
             <div class="d-flex align-content-stretch bg-warning flex-grow-1">
                 <div class="d-flex flex-grow-1">
 
-                    <div id="map" style="height: unset;flex:1;"></div>
+                    <div id="datemap" style="height: unset;flex:1;"></div>
                     {% include 'templates/core/loaderSpinner.html' %}
                 </div>
             </div>
