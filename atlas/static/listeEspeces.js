@@ -54,6 +54,14 @@ function filterReptiles(e){
   e.preventDefault();
 }
 
+function filterAmphibiens(e){
+  document.getElementById('taxonInput').value = "Amphibiens";
+    $("#taxonList li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf("amphibiens") > -1)
+    });
+  e.preventDefault();
+}
+
 //Filtres des plantes :
 function filterAngiospermes(e){
   document.getElementById('taxonInput').value = "Angiospermes";
@@ -72,9 +80,9 @@ function filterGymnospermes(e){
 }
 
 function filterFougeres(e){
-  document.getElementById('taxonInput').value = "Fougères";
+  document.getElementById('taxonInput').value = "Fougère";
     $("#taxonList li").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf("fougeres") > -1)
+      $(this).toggle($(this).text().toLowerCase().indexOf("fougère") > -1)
     });
   e.preventDefault();
 }

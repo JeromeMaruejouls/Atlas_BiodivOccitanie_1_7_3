@@ -386,25 +386,6 @@
                         </div>
                     </div>
 
-
-                    {#                            <h5 id="buttonChild"> <b>{{taxon.listTaxonsChild|length }}</b> taxon(s) agrégé(s) sur cette fiche: <span class="fas fa-chevron-right"></span>#}
-                    {#    						</h5>#}
-                    {#                            <div hidden="hidden" id="childList">#}
-                    {#                                        {% for child in taxon.listTaxonsChild %}#}
-                    {#                                         <i>#}
-                    {#                                            {% if ( child.tri_rang >= configuration.LIMIT_FICHE_LISTE_HIERARCHY) %}#}
-                    {#                                                <a href = "{{url_for('main.ficheEspece', cd_nom=child.cd_ref) }}">#}
-                    {#                        {{child.lb_nom}}</a>#}
-                    {#                                            {% else %}#}
-                    {#                                                <a href = "#}
-                    {#                        {{url_for('main.ficheRangTaxonomie', cd_ref = child.cd_ref) }}">{{child.lb_nom}} </a>#}
-                    {#{% endif %}#}
-                    {#                                            </i>#}
-                    {#                                            {% if not loop.last %}#}
-                    {#                                              ,#}
-                    {#                                        {% endif %}#}
-                    {#                                    {% endfor %}#}
-                    {#                            </div>#}
                 {% endif %}
             </div>
             </div>
