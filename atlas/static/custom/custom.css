@@ -180,3 +180,9 @@ body {
   color: #fff;
   background-color: red;
 }
+
+/* Images page d'acceuil */
+.pictoImg {
+  background: no-repeat;
+  background-size: 100%;
+}
